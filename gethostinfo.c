@@ -58,6 +58,9 @@ int check_promiscuous_mode(const char *iface) {
 
 //十六进制转成标准可读IPv6
 void hex_to_ipv6(const char *hex_ip,char * ipv6_str) {
+
+    sprintf(ipv6_str,"%s","N/A");
+
     struct in6_addr ipv6_addr;
 
     // 将十六进制字符串转换为二进制格式
@@ -79,6 +82,7 @@ void hex_to_ipv6(const char *hex_ip,char * ipv6_str) {
 // Function to collect both IPv4 and IPv6 gateways
 void  get_v4_default_gateway(const char *iface_name, char *gateway) {
  
+    sprintf(gateway,"%s","N/A");
     // Collect IPv4 gateways
     FILE *fp = fopen(route_conf_path, "r");
     if (fp == NULL) {
